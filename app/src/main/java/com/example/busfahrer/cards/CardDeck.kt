@@ -1,7 +1,7 @@
 package com.example.busfahrer.cards
 
 class CardDeck {
-    var cards : ArrayList<Card> = ArrayList()
+    private var cards : ArrayList<Card> = ArrayList()
 
     init {
         for (rank in Rank.values()) {
@@ -13,5 +13,9 @@ class CardDeck {
 
     fun shuffle() {
         cards.shuffle()
+    }
+
+    fun getNextCard() : Card {
+        return cards.removeLast()
     }
 }
