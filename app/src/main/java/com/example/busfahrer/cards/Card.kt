@@ -1,7 +1,9 @@
 package com.example.busfahrer.cards
 
+import com.example.busfahrer.R
+
 data class Card (val rank: Rank, val suite: Suite) {
-    var drawableId: Int = 0
+    var drawableId: Int = R.drawable.ace_hearts
 
     operator fun compareTo(card : Card) : Int {
         return rank - card.rank
