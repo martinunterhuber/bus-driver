@@ -35,7 +35,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/box1"
-        tools:src="@drawable/rounded_box" />
+        android:src="@drawable/rounded_box" />
 
     <ImageView
         android:id="@+id/symbol_box2"

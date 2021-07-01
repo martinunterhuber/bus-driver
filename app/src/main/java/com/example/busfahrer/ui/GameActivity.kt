@@ -23,9 +23,12 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun initGame() {
-        (intent.getSerializableExtra("PLAYERS") as ArrayList<Player>).apply {
+        intent.getStringArrayListExtra("PLAYERS")!!.map {
+            Player(it)
+        }.apply {
             game = Game(this)
         }
+
         game.shuffleDeck()
     }
 }

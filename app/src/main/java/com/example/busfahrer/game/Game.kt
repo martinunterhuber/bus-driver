@@ -2,7 +2,7 @@ package com.example.busfahrer.game
 
 import com.example.busfahrer.cards.CardDeck
 
-class Game (private val players : ArrayList<Player>) {
+class Game(private val players: List<Player>) {
     private val cardDeck = CardDeck()
     private val currentPlayerIndex = 0
 
