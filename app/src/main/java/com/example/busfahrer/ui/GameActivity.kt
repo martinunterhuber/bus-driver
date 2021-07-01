@@ -16,10 +16,14 @@ class GameActivity : AppCompatActivity() {
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initGame()
+        binding.title.text = game.getCurrentPlayer().name
+    }
+
+    fun initGame() {
         (intent.getSerializableExtra("PLAYERS") as ArrayList<Player>).apply {
             game = Game(this)
         }
-
         game.shuffleDeck()
     }
 }
