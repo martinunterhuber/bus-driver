@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
 import com.example.busfahrer.databinding.ActivityGameBinding
+import com.example.busfahrer.fragments.ChoiceFragment
 import com.example.busfahrer.game.Game
 import com.example.busfahrer.game.Player
 
@@ -18,9 +19,10 @@ class GameActivity : AppCompatActivity() {
 
         initGame()
         binding.title.text = game.getCurrentPlayer().name
+        supportFragmentManager.beginTransaction().add(binding.fragmentContainerView.id, ChoiceFragment())
     }
 
-    fun initGame() {
+    private fun initGame() {
         (intent.getSerializableExtra("PLAYERS") as ArrayList<Player>).apply {
             game = Game(this)
         }
