@@ -8,8 +8,9 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import com.example.busfahrer.R
 import com.example.busfahrer.databinding.FragmentChoiceResultBinding
+import com.example.busfahrer.ui.GameActivity
 
-class ChoiceResultFragment: Fragment() {
+class ChoiceResultFragment(private val result: Boolean): Fragment() {
     private lateinit var binding: FragmentChoiceResultBinding
 
     override fun onCreateView(
@@ -24,8 +25,8 @@ class ChoiceResultFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.nextButton.setOnClickListener{
-            // call next on activity
+            (requireActivity() as GameActivity).next()
         }
-        binding.resultImage.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_baseline_check_24))
+        binding.resultImage.setImageDrawable(AppCompatResources.getDrawable(requireContext(), if (result) R.drawable.ic_baseline_check_24 else R.drawable.ic_baseline_close_24))
     }
 }

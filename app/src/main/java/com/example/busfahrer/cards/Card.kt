@@ -16,4 +16,8 @@ data class Card (val rank: Rank, val suite: Suite) {
     fun inside(card1 : Card, card2 : Card) : Boolean {
         return rank in card1.rank..card2.rank
     }
+
+    fun hasDifferentSuiteThan(vararg cards: Card) : Boolean {
+        return cards.all { this.suite != it.suite }
+    }
 }

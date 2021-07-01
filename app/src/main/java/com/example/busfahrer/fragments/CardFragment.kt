@@ -8,6 +8,7 @@ import android.widget.ImageView
 import androidx.appcompat.content.res.AppCompatResources
 
 import androidx.fragment.app.Fragment
+import com.example.busfahrer.R
 
 import com.example.busfahrer.databinding.FragmentCardsBinding
 import com.example.busfahrer.game.Player
@@ -32,7 +33,7 @@ class CardFragment(private val player: Player) : Fragment() {
             if (index < player.cards.size) {
                 cardImage.setImageDrawable(AppCompatResources.getDrawable(requireContext(), player.cards[index].drawableId))
             } else {
-                cardImage.visibility = View.GONE
+                cardImage.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.seven_bells))
             }
         }
     }
