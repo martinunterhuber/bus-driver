@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Busfahrer</string>
+    <string name="player_1">Spieler 1</string>
+    <string name="player_2">Spieler 2</string>
+    <string name="player_3">Spieler 3</string>
+    <string name="player_4">Spieler 4</string>
+    <string name="player_n">Spieler %1$s</string>
+    <string name="start_game">Spiel Starten</string>
+    <string name="next">Weiter</string>
+</resources>
