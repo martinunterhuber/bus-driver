@@ -16,12 +16,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/cards_fragment_container"
+        android:name="com.example.busfahrer.fragments.ChoiceFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fragmentContainerView"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:layout="@layout/fragment_cards" />
+
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
         android:name="com.example.busfahrer.fragments.ChoiceFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/cards_fragment_container"
         tools:layout="@layout/fragment_choice" />
 </androidx.constraintlayout.widget.ConstraintLayout>

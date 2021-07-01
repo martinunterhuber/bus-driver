@@ -1,6 +1,8 @@
 package com.example.busfahrer.cards
 
 data class Card (val rank: Rank, val suite: Suite) {
+    var drawableId: Int = 0
+
     operator fun compareTo(card : Card) : Int {
         return rank - card.rank
     }
