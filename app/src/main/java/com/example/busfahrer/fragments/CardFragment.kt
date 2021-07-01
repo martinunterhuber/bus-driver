@@ -1,6 +1,7 @@
 package com.example.busfahrer.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,9 +32,12 @@ class CardFragment(private val player: Player) : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         for ((index, cardImage) in cardImages.withIndex()) {
             if (index < player.cards.size) {
-                cardImage.setImageDrawable(AppCompatResources.getDrawable(requireContext(), player.cards[index].drawableId))
+                val drawableName = "${player.cards[index].suite.name.lowercase()}_${player.cards[index].rank.name.lowercase()}"
+                Log.e("test", drawableName)
+                val drawable = resources.getIdentifier(drawableName, "drawable", requireActivity().packageName)
+                cardImage.setImageDrawable(AppCompatResources.getDrawable(requireContext(), drawable))
             } else {
-                cardImage.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.seven_bells))
+                cardImage.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.acorns_ace))
             }
         }
     }
