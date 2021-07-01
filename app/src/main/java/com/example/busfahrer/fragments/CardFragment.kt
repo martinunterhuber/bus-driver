@@ -1,7 +1,6 @@
 package com.example.busfahrer.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +13,7 @@ import com.example.busfahrer.R
 import com.example.busfahrer.databinding.FragmentCardsBinding
 import com.example.busfahrer.game.Player
 
-class CardFragment(private val player: Player) : Fragment() {
+class CardFragment(private val startPlayer: Player) : Fragment() {
     private lateinit var binding: FragmentCardsBinding
     private lateinit var cardImages: List<ImageView>
 
@@ -30,15 +29,44 @@ class CardFragment(private val player: Player) : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        updateCards(startPlayer)
+    }
+
+    fun updateCards(player: Player) {
         for ((index, cardImage) in cardImages.withIndex()) {
             if (index < player.cards.size) {
-                val drawableName = "${player.cards[index].suite.name.lowercase()}_${player.cards[index].rank.name.lowercase()}"
-                Log.e("test", drawableName)
-                val drawable = resources.getIdentifier(drawableName, "drawable", requireActivity().packageName)
-                cardImage.setImageDrawable(AppCompatResources.getDrawable(requireContext(), drawable))
+                setFrontside(player, index, cardImage)
             } else {
-                cardImage.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.acorns_ace))
+                setBackside(cardImage)
             }
         }
     }
+
+    private fun setFrontside(
+        player: Player,
+        index: Int,
+        cardImage: ImageView
+    ) {
+        val drawableName =
+            "${player.cards[index].suite.name.lowercase()}_${player.cards[index].rank.name.lowercase()}"
+        val drawable =
+            resources.getIdentifier(drawableName, "drawable", requireActivity().packageName)
+        cardImage.setImageDrawable(
+            AppCompatResources.getDrawable(
+                requireContext(),
+                drawable
+            )
+        )
+    }
+
+    private fun setBackside(cardImage: ImageView) {
+        cardImage.setImageDrawable(
+            AppCompatResources.getDrawable(
+                requireContext(),
+                R.drawable.backside
+            )
+        )
+    }
+
+
 }

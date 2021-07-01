@@ -8,7 +8,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import com.example.busfahrer.R
 import com.example.busfahrer.databinding.FragmentChoiceResultBinding
-import com.example.busfahrer.ui.GameActivity
+import com.example.busfahrer.ui.ChoiceActivity
 
 class ChoiceResultFragment(private val result: Boolean): Fragment() {
     private lateinit var binding: FragmentChoiceResultBinding
@@ -25,7 +25,7 @@ class ChoiceResultFragment(private val result: Boolean): Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.nextButton.setOnClickListener{
-            (requireActivity() as GameActivity).next()
+            (requireActivity() as ChoiceActivity).next()
         }
         binding.resultImage.setImageDrawable(AppCompatResources.getDrawable(requireContext(), if (result) R.drawable.ic_baseline_check_24 else R.drawable.ic_baseline_close_24))
     }

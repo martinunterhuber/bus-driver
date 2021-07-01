@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
             players.add(binding.player2.text.toString())
             players.add(binding.player3.text.toString())
             players.add(binding.player4.text.toString())
-            val intent = Intent(this, GameActivity::class.java)
+            val intent = Intent(this, ChoiceActivity::class.java)
             intent.putExtra("PLAYERS", players)
             startActivity(intent)
         }

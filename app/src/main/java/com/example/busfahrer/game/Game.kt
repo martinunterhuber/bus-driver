@@ -3,10 +3,19 @@ package com.example.busfahrer.game
 import com.example.busfahrer.cards.CardDeck
 import com.example.busfahrer.choices.Choice
 
-class Game(private val players: List<Player>) {
+class Game {
+    private lateinit var players: List<Player>
     private val cardDeck = CardDeck()
     private var currentPlayerIndex = 0
     var currentRound = 0
+
+    companion object {
+        val instance = Game()
+    }
+
+    fun init(players: List<Player>) {
+        this.players = players
+    }
 
     fun shuffleDeck() {
         cardDeck.shuffle()
@@ -38,5 +47,9 @@ class Game(private val players: List<Player>) {
         }
         getCurrentPlayer().cards.add(nextCard)
         return isCorrect
+    }
+
+    fun isLastRound(): Boolean {
+        return currentRound == 4
     }
 }
