@@ -1,4 +1,4 @@
-package com.example.busfahrer.fragments
+package at.unterhuber.bus_driver.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
-import com.example.busfahrer.databinding.FragmentChoiceBinding
-import com.example.busfahrer.choices.Choice
-import com.example.busfahrer.ui.ChoiceActivity
+import com.example.bus_driver.databinding.FragmentChoiceBinding
+import at.unterhuber.bus_driver.choices.Choice
+import at.unterhuber.bus_driver.ui.ChoiceActivity
 
 class ChoiceFragment(private val choice1: Choice, private val choice2: Choice) : Fragment() {
     private lateinit var binding: FragmentChoiceBinding

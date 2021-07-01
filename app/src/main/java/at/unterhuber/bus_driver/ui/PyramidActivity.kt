@@ -1,8 +1,8 @@
-package com.example.busfahrer.ui
+package at.unterhuber.bus_driver.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.busfahrer.databinding.ActivityPyramidBinding
+import com.example.bus_driver.databinding.ActivityPyramidBinding
 
 class PyramidActivity: AppCompatActivity() {
     private lateinit var binding: ActivityPyramidBinding

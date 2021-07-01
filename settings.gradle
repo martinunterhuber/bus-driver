@@ -1,2 +1,2 @@
-rootProject.name = "Busfahrer"
+rootProject.name = "Bus Driver"
 include ':app'

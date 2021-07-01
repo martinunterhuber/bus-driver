@@ -1,16 +1,16 @@
-package com.example.busfahrer.ui
+package at.unterhuber.bus_driver.ui
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
-import com.example.busfahrer.databinding.ActivityGameBinding
-import com.example.busfahrer.fragments.CardFragment
-import com.example.busfahrer.fragments.ChoiceFragment
-import com.example.busfahrer.choices.Choice
-import com.example.busfahrer.fragments.ChoiceResultFragment
-import com.example.busfahrer.game.Game
-import com.example.busfahrer.game.Player
+import com.example.bus_driver.databinding.ActivityGameBinding
+import at.unterhuber.bus_driver.fragments.CardFragment
+import at.unterhuber.bus_driver.fragments.ChoiceFragment
+import at.unterhuber.bus_driver.choices.Choice
+import at.unterhuber.bus_driver.fragments.ChoiceResultFragment
+import at.unterhuber.bus_driver.game.Game
+import at.unterhuber.bus_driver.game.Player
 
 class ChoiceActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding

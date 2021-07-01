@@ -1,4 +1,4 @@
-package com.example.busfahrer.fragments
+package at.unterhuber.bus_driver.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,10 +8,10 @@ import android.widget.ImageView
 import androidx.appcompat.content.res.AppCompatResources
 
 import androidx.fragment.app.Fragment
-import com.example.busfahrer.R
+import com.example.bus_driver.R
 
-import com.example.busfahrer.databinding.FragmentCardsBinding
-import com.example.busfahrer.game.Player
+import com.example.bus_driver.databinding.FragmentCardsBinding
+import at.unterhuber.bus_driver.game.Player
 
 class CardFragment(private val startPlayer: Player) : Fragment() {
     private lateinit var binding: FragmentCardsBinding

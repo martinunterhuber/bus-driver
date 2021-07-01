@@ -1,7 +1,7 @@
-package com.example.busfahrer.game
+package at.unterhuber.bus_driver.game
 
-import com.example.busfahrer.cards.CardDeck
-import com.example.busfahrer.choices.Choice
+import at.unterhuber.bus_driver.cards.CardDeck
+import at.unterhuber.bus_driver.choices.Choice
 
 class Game {
     private lateinit var players: List<Player>

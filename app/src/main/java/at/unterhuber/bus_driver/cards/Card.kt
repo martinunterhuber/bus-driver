@@ -1,4 +1,4 @@
-package com.example.busfahrer.cards
+package at.unterhuber.bus_driver.cards
 
 data class Card (val rank: Rank, val suite: Suite) {
 

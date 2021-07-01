@@ -1,6 +1,6 @@
-package com.example.busfahrer.game
+package at.unterhuber.bus_driver.game
 
-import com.example.busfahrer.cards.Card
+import at.unterhuber.bus_driver.cards.Card
 
 class Player (val name: String) {
     val cards: ArrayList<Card> = ArrayList()

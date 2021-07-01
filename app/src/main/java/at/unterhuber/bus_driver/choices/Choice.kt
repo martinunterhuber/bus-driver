@@ -1,7 +1,7 @@
-package com.example.busfahrer.choices
+package at.unterhuber.bus_driver.choices
 
 import androidx.annotation.DrawableRes
-import com.example.busfahrer.R
+import com.example.bus_driver.R
 
 enum class Choice(@DrawableRes val drawable: Int) {
     TREE(R.drawable.ic_baseline_park_24), NOT_TREE(R.drawable.ic_baseline_local_fire_department_24),

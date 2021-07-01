@@ -1,4 +1,4 @@
-package com.example.busfahrer
+package com.example.bus_driver
 
 import org.junit.Test
 

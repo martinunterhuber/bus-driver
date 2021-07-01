@@ -1,4 +1,4 @@
-package com.example.busfahrer.cards
+package at.unterhuber.bus_driver.cards
 
 class CardDeck {
     private var cards : ArrayList<Card> = ArrayList()
