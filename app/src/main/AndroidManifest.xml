@@ -17,6 +17,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.ChoiceActivity" />
+        <activity android:name=".ui.PyramidActivity" />
     </application>
-
 </manifest>

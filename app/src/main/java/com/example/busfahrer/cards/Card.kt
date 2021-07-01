@@ -11,7 +11,11 @@ data class Card (val rank: Rank, val suite: Suite) {
     }
 
     fun inside(card1 : Card, card2 : Card) : Boolean {
-        return rank in card1.rank..card2.rank
+        return (card1 < this && this < card2) || (card2 < this && this < card1)
+    }
+
+    fun outside(card1 : Card, card2 : Card) : Boolean {
+        return (this < card1 && this < card2) || (this > card1 && this > card2)
     }
 
     fun hasDifferentSuiteThan(vararg cards: Card) : Boolean {

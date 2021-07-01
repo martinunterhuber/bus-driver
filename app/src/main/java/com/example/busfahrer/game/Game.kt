@@ -41,7 +41,7 @@ class Game {
             Choice.ABOVE -> nextCard > getCurrentPlayer().cards[0]
             Choice.BELOW -> nextCard < getCurrentPlayer().cards[0]
             Choice.IN_BETWEEN -> nextCard.inside(getCurrentPlayer().cards[0], getCurrentPlayer().cards[1])
-            Choice.OUTSIDE -> !nextCard.inside(getCurrentPlayer().cards[0], getCurrentPlayer().cards[1])
+            Choice.OUTSIDE -> nextCard.outside(getCurrentPlayer().cards[0], getCurrentPlayer().cards[1])
             Choice.HAVE -> !nextCard.hasDifferentSuiteThan(*getCurrentPlayer().cards.toTypedArray())
             Choice.NOT_HAVE -> nextCard.hasDifferentSuiteThan(*getCurrentPlayer().cards.toTypedArray())
         }
