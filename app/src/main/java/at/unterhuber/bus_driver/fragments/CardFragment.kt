@@ -35,14 +35,14 @@ class CardFragment(private val startPlayer: Player) : Fragment() {
     fun updateCards(player: Player) {
         for ((index, cardImage) in cardImages.withIndex()) {
             if (index < player.cards.size) {
-                setFrontside(player, index, cardImage)
+                setFrontSide(player, index, cardImage)
             } else {
                 setBackside(cardImage)
             }
         }
     }
 
-    private fun setFrontside(
+    private fun setFrontSide(
         player: Player,
         index: Int,
         cardImage: ImageView

@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="at.unterhuber.bus_driver.ui.ChoiceActivity" />
+        <activity android:name="at.unterhuber.bus_driver.ui.ChoiceActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
         <activity android:name="at.unterhuber.bus_driver.ui.PyramidActivity" />
     </application>
 </manifest>
