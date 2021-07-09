@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import at.unterhuber.bus_driver.adapters.PyramidAdapter
 import at.unterhuber.bus_driver.cards.Card
 import at.unterhuber.bus_driver.game.Game
+import com.example.bus_driver.R
 import com.example.bus_driver.databinding.ActivityPyramidBinding
 import com.google.android.flexbox.*
 
@@ -45,7 +46,9 @@ class PyramidActivity: AppCompatActivity() {
     private fun getResults(card: Card) {
         val results = Game.instance.getPlayersSameRankCardCount(card.rank)
         Game.instance.removePlayersSameRankCards(card.rank)
-        var text = results.filter { it.count > 0 }.joinToString(separator = "\n") { "${it.playerName} distributes ${it.count} sips!" }
+        var text = results.filter { it.count > 0 }.joinToString(separator = "\n") {
+            getString(R.string.distributes_parametrized, it.playerName, it.count)
+        }
         if (text.isBlank()) {
             text = "-"
         }
