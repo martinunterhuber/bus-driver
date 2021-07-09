@@ -20,11 +20,22 @@
         android:id="@+id/symbol_box1"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/box1"
+        app:layout_constraintBottom_toTopOf="@+id/text_box1"
         app:layout_constraintEnd_toEndOf="@+id/box1"
         app:layout_constraintStart_toStartOf="@+id/box1"
         app:layout_constraintTop_toTopOf="@+id/box1"
         android:src="@drawable/ic_baseline_arrow_upward_24" />
+
+    <TextView
+        android:id="@+id/text_box1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="test"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="@+id/box1"
+        app:layout_constraintEnd_toEndOf="@+id/box1"
+        app:layout_constraintStart_toStartOf="@+id/box1"
+        app:layout_constraintTop_toBottomOf="@+id/symbol_box1" />
 
     <ImageView
         android:id="@+id/box2"
@@ -41,10 +52,21 @@
         android:id="@+id/symbol_box2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/box2"
+        app:layout_constraintBottom_toTopOf="@+id/text_box2"
         app:layout_constraintEnd_toEndOf="@+id/box2"
         app:layout_constraintStart_toStartOf="@+id/box2"
         app:layout_constraintTop_toTopOf="@+id/box2"
         android:src="@drawable/ic_baseline_arrow_downward_24" />
+
+    <TextView
+        android:id="@+id/text_box2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="test"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="@+id/box2"
+        app:layout_constraintEnd_toEndOf="@+id/box2"
+        app:layout_constraintStart_toStartOf="@+id/box2"
+        app:layout_constraintTop_toBottomOf="@+id/symbol_box2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

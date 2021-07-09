@@ -42,8 +42,6 @@ class ChoiceActivity : AppCompatActivity(), ChoiceListener {
             game.init(this)
         }
         game.shuffleDeck()
-        startActivity(Intent(this, BusDriverActivity::class.java))
-        finish()
 
         playerCardFragment = PlayerCardFragment(game.getCurrentPlayer())
         supportFragmentManager
@@ -73,7 +71,7 @@ class ChoiceActivity : AppCompatActivity(), ChoiceListener {
         playerCardFragment.updateCards(game.getCurrentPlayer())
     }
 
-    fun next() {
+    override fun next() {
         game.updateCurrentPlayer()
         supportFragmentManager
             .beginTransaction()

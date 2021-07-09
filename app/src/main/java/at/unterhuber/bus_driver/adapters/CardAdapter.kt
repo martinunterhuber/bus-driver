@@ -14,12 +14,19 @@ import com.google.android.flexbox.FlexboxLayoutManager
 private const val EPSILON = 0.001f
 
 class CardAdapter(private val cards: ArrayList<Card>, private val context: Context): RecyclerView.Adapter<CardAdapter.ViewHolder>() {
+    private var selectedPosition = 0
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val imageView: ImageView = itemView.findViewById(R.id.imageView)
 
-        internal fun bindTo(@DrawableRes resourceId: Int) {
+        internal fun bindTo(@DrawableRes resourceId: Int, isSelected: Boolean) {
             imageView.setImageResource(resourceId)
             val lp = imageView.layoutParams
+            if (isSelected) {
+                imageView.setBackgroundResource(R.drawable.border)
+            } else {
+                imageView.setBackgroundResource(0)
+            }
             if (lp is FlexboxLayoutManager.LayoutParams) {
                 lp.flexBasisPercent = 0.2f - EPSILON
             }
@@ -33,7 +40,11 @@ class CardAdapter(private val cards: ArrayList<Card>, private val context: Conte
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val drawableName = cards[position].getDrawableName()
-        holder.bindTo(context.resources.getIdentifier(drawableName, "drawable", context.packageName))
+        holder.bindTo(context.resources.getIdentifier(drawableName, "drawable", context.packageName), position == selectedPosition)
+    }
+
+    fun setSelectedPosition(position: Int) {
+        selectedPosition = position
     }
 
     override fun getItemCount(): Int {

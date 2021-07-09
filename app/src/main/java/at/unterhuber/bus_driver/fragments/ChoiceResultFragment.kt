@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.example.bus_driver.R
 import com.example.bus_driver.databinding.FragmentChoiceResultBinding
 import at.unterhuber.bus_driver.ui.ChoiceActivity
+import at.unterhuber.bus_driver.util.ChoiceListener
 
 class ChoiceResultFragment(private val result: Boolean): Fragment() {
     private lateinit var binding: FragmentChoiceResultBinding
@@ -25,7 +26,7 @@ class ChoiceResultFragment(private val result: Boolean): Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.nextButton.setOnClickListener{
-            (requireActivity() as ChoiceActivity).next()
+            (requireActivity() as ChoiceListener).next()
         }
         binding.resultImage.setImageDrawable(AppCompatResources.getDrawable(requireContext(), if (result) R.drawable.ic_baseline_check_24 else R.drawable.ic_baseline_close_24))
     }

@@ -33,5 +33,7 @@ class ChoiceFragment(private val choice1: Choice, private val choice2: Choice) :
         }
         binding.symbolBox1.setImageDrawable(AppCompatResources.getDrawable(requireContext(), choice1.drawable))
         binding.symbolBox2.setImageDrawable(AppCompatResources.getDrawable(requireContext(), choice2.drawable))
+        binding.textBox1.setText(choice1.text)
+        binding.textBox2.setText(choice2.text)
     }
 }

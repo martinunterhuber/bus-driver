@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import at.unterhuber.bus_driver.adapters.CardAdapter
 import at.unterhuber.bus_driver.cards.Card
 import com.example.bus_driver.databinding.FragmentCardsBinding
@@ -37,7 +36,12 @@ class CardFragment(private val cards: ArrayList<Card>) : Fragment() {
         }
     }
 
-    fun cardHasChanged() {
+    fun setCardPosition(position: Int) {
+        adapter.setSelectedPosition(position)
+        adapter.notifyDataSetChanged()
+    }
+
+    fun updatedCards() {
         adapter.notifyDataSetChanged()
     }
 }

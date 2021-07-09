@@ -42,6 +42,8 @@ class BusDriverActivity: AppCompatActivity(), ChoiceListener {
     }
 
     private fun doRound() {
+        cardFragment.setCardPosition(game.busDriverCardIndex)
+
         supportFragmentManager
             .beginTransaction()
             .add(binding.fragmentContainerView.id, choiceFragment)
@@ -50,7 +52,7 @@ class BusDriverActivity: AppCompatActivity(), ChoiceListener {
 
     override fun choice(choice: Choice){
         choiceResultFragment = ChoiceResultFragment(game.busDriverChoice(choice))
-        cardFragment.cardHasChanged()
+        cardFragment.updatedCards()
 
         supportFragmentManager
             .beginTransaction()
@@ -59,7 +61,7 @@ class BusDriverActivity: AppCompatActivity(), ChoiceListener {
             .commit()
     }
 
-    fun next() {
+    override fun next() {
         supportFragmentManager
             .beginTransaction()
             .remove(choiceResultFragment)

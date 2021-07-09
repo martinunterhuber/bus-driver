@@ -11,7 +11,7 @@ class Game {
     private var cardDeck = CardDeck()
     private var currentPlayerIndex = 0
     var currentRound = 0
-    private var busDriverCardIndex = 0
+    var busDriverCardIndex = 0
     var busDriverCards = ArrayList<Card>()
 
     companion object {

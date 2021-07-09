@@ -4,4 +4,5 @@ import at.unterhuber.bus_driver.choices.Choice
 
 interface ChoiceListener {
     fun choice(choice: Choice)
+    fun next()
 }
