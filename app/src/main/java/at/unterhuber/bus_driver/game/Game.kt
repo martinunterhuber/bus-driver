@@ -139,4 +139,8 @@ class Game {
     fun busDriverHasFinished(): Boolean {
         return busDriverCardIndex == 5
     }
+
+    fun numberOfCardsLeft(): Int {
+        return cardDeck.size()
+    }
 }

@@ -26,4 +26,8 @@ class CardDeck {
     fun remove(otherCards: ArrayList<Card>) {
         cards.removeAll(otherCards)
     }
+
+    fun size(): Int {
+        return cards.size
+    }
 }

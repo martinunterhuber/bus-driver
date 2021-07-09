@@ -15,12 +15,16 @@ class PyramidActivity: AppCompatActivity() {
     private lateinit var binding: ActivityPyramidBinding
     private lateinit var adapter: PyramidAdapter
     private val cards = ArrayList<Card>()
-    private val depth = 4
+    private var depth = 4
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPyramidBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        // TODO: make this more generic
+        if (Game.instance.numberOfCardsLeft() < 14) {
+            depth = 3
+        }
         for (i in 1..getCountFromDepth()) {
             cards.add(Game.instance.drawCard())
         }
@@ -64,7 +68,7 @@ class PyramidActivity: AppCompatActivity() {
     private fun getHeight(displayedCards: Int): Int {
         var temp = displayedCards
         var height = 0
-        var i = 4
+        var i = depth
         while (temp > 0) {
             temp -= i
             height++
