@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Busfohrer</string>
-    <string name="player_1">Spiela 1</string>
-    <string name="player_2">Spiela 2</string>
-    <string name="player_3">Spiela 3</string>
-    <string name="player_4">Spiela 4</string>
-    <string name="player_n">Spiela %1$s</string>
+    <string name="player_n">Spiela %1$d</string>
     <string name="start_game">Spiel Starten</string>
     <string name="next">Weita</string>
     <string name="have">Hunni</string>
