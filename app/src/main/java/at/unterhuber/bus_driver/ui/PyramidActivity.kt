@@ -63,11 +63,13 @@ class PyramidActivity: AppCompatActivity() {
 
     private fun getHeight(displayedCards: Int): Int {
         var temp = displayedCards
+        var height = 0
         var i = 4
         while (temp > 0) {
             temp -= i
+            height++
             i--
         }
-        return i
+        return height
     }
 }
