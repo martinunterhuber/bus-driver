@@ -20,6 +20,11 @@ class Game {
 
     fun init(players: List<Player>) {
         this.players = players
+        cardDeck = CardDeck()
+        currentPlayerIndex = 0
+        currentRound = 0
+        busDriverCardIndex = 0
+        busDriverCards = ArrayList<Card>()
     }
 
     fun shuffleDeck() {
