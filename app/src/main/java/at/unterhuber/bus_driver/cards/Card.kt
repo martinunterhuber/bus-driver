@@ -21,4 +21,8 @@ data class Card (val rank: Rank, val suite: Suite) {
     fun hasDifferentSuiteThan(vararg cards: Card) : Boolean {
         return cards.all { this.suite != it.suite }
     }
+
+    fun getDrawableName() : String {
+        return "${suite.name.lowercase()}_${rank.name.lowercase()}"
+    }
 }

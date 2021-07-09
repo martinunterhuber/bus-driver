@@ -40,14 +40,17 @@ class ChoiceActivity : AppCompatActivity() {
             game = Game.instance
             game.init(this)
         }
-
         game.shuffleDeck()
-        cardFragment = CardFragment(game.getCurrentPlayer())
-        supportFragmentManager
-            .beginTransaction()
-            .add(binding.cardsFragmentContainer.id, cardFragment)
-            .commit()
-        doRound()
+
+        startActivity(Intent(this, PyramidActivity::class.java))
+        finish()
+
+//        cardFragment = CardFragment(game.getCurrentPlayer())
+//        supportFragmentManager
+//            .beginTransaction()
+//            .add(binding.cardsFragmentContainer.id, cardFragment)
+//            .commit()
+//        doRound()
     }
 
 

@@ -47,8 +47,7 @@ class CardFragment(private val startPlayer: Player) : Fragment() {
         index: Int,
         cardImage: ImageView
     ) {
-        val drawableName =
-            "${player.cards[index].suite.name.lowercase()}_${player.cards[index].rank.name.lowercase()}"
+        val drawableName = player.cards[index].getDrawableName()
         val drawable =
             resources.getIdentifier(drawableName, "drawable", requireActivity().packageName)
         cardImage.setImageDrawable(
@@ -67,6 +66,4 @@ class CardFragment(private val startPlayer: Player) : Fragment() {
             )
         )
     }
-
-
 }

@@ -1,5 +1,6 @@
 package at.unterhuber.bus_driver.game
 
+import at.unterhuber.bus_driver.cards.Card
 import at.unterhuber.bus_driver.cards.CardDeck
 import at.unterhuber.bus_driver.choices.Choice
 
@@ -51,5 +52,9 @@ class Game {
 
     fun isLastRound(): Boolean {
         return currentRound == 4
+    }
+
+    fun drawCard(): Card {
+        return cardDeck.getNextCard()
     }
 }
