@@ -2,6 +2,8 @@ package at.unterhuber.bus_driver.game
 
 import at.unterhuber.bus_driver.cards.Card
 import at.unterhuber.bus_driver.cards.CardDeck
+import at.unterhuber.bus_driver.cards.Rank
+import at.unterhuber.bus_driver.cards.Suite
 import at.unterhuber.bus_driver.choices.Choice
 
 class Game {
@@ -56,5 +58,17 @@ class Game {
 
     fun drawCard(): Card {
         return cardDeck.getNextCard()
+    }
+
+    private fun getPlayerSameRankCardCount(player: Player, rank: Rank): Int {
+        return player.cards.count { it.rank == rank }
+    }
+
+    fun getPlayersSameRankCardCount(rank: Rank): ArrayList<Result> {
+        val results = ArrayList<Result>()
+        for (player in players) {
+            results.add(Result(player.name, getPlayerSameRankCardCount(player, rank)))
+        }
+        return results
     }
 }

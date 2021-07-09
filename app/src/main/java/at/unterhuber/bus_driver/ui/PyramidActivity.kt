@@ -1,6 +1,7 @@
 package at.unterhuber.bus_driver.ui
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import at.unterhuber.bus_driver.adapters.PyramidAdapter
@@ -31,12 +32,19 @@ class PyramidActivity: AppCompatActivity() {
             justifyContent = JustifyContent.CENTER
         }
         binding.nextButton.setOnClickListener {
-            if (adapter.displayedCards == count) {
+            if (adapter.reachedLimit()) {
                 // TODO: start next activity
                 finish()
             }
-            adapter.displayedCards++
+            val card = adapter.nextCard()
             adapter.notifyDataSetChanged()
+            getResults(card)
         }
+    }
+
+    private fun getResults(card: Card) {
+        val results = Game.instance.getPlayersSameRankCardCount(card.rank)
+        val text = results.filter { it.count > 0 }.joinToString(separator = "\n") { "${it.playerName} distributes ${it.count} sips!" }
+        Toast.makeText(this, text, Toast.LENGTH_LONG).show()
     }
 }

@@ -14,7 +14,7 @@ import com.google.android.flexbox.FlexboxLayoutManager
 
 
 class PyramidAdapter(private val cards: ArrayList<Card>, private val context: Context): RecyclerView.Adapter<PyramidAdapter.ViewHolder>() {
-    var displayedCards = 0
+    private var displayedCards = 0
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imageView)
@@ -55,5 +55,14 @@ class PyramidAdapter(private val cards: ArrayList<Card>, private val context: Co
 
     override fun getItemCount(): Int {
         return cards.size
+    }
+
+    fun nextCard(): Card {
+        displayedCards++
+        return cards[itemCount - displayedCards]
+    }
+
+    fun reachedLimit(): Boolean {
+        return displayedCards == itemCount
     }
 }
