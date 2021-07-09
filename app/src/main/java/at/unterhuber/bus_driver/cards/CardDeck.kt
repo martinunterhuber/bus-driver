@@ -18,4 +18,12 @@ class CardDeck {
     fun getNextCard() : Card {
         return cards.removeLast()
     }
+
+    fun isEmpty(): Boolean {
+        return cards.isEmpty()
+    }
+
+    fun remove(otherCards: ArrayList<Card>) {
+        cards.removeAll(otherCards)
+    }
 }

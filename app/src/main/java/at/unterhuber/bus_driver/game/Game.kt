@@ -109,6 +109,11 @@ class Game {
     }
 
     fun busDriverChoice(choice: Choice): Boolean {
+        if (cardDeck.isEmpty()) {
+            shuffleNewDeck()
+            cardDeck.remove(busDriverCards)
+        }
+
         val nextCard = cardDeck.getNextCard()
         val isCorrect = when(choice) {
             Choice.ABOVE -> nextCard > busDriverCards[busDriverCardIndex]
