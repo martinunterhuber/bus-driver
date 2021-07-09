@@ -15,13 +15,13 @@ class PyramidActivity: AppCompatActivity() {
     private lateinit var binding: ActivityPyramidBinding
     private lateinit var adapter: PyramidAdapter
     private val cards = ArrayList<Card>()
-    private val count = 10
+    private val depth = 4
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPyramidBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        for (i in 1..count) {
+        for (i in 1..getCountFromDepth()) {
             cards.add(Game.instance.drawCard())
         }
         adapter = PyramidAdapter(cards, this)
@@ -36,22 +36,38 @@ class PyramidActivity: AppCompatActivity() {
             if (adapter.reachedLimit()) {
                 startActivity(Intent(this, BusDriverActivity::class.java))
                 finish()
+            } else {
+                val card = adapter.nextCard()
+                adapter.notifyDataSetChanged()
+                getResults(card)
             }
-            val card = adapter.nextCard()
-            adapter.notifyDataSetChanged()
-            getResults(card)
         }
+    }
+
+    private fun getCountFromDepth(): Int {
+        var sum = 0
+        for (i in 1..depth) {
+            sum += i
+        }
+        return sum
     }
 
     private fun getResults(card: Card) {
         val results = Game.instance.getPlayersSameRankCardCount(card.rank)
         Game.instance.removePlayersSameRankCards(card.rank)
-        var text = results.filter { it.count > 0 }.joinToString(separator = "\n") {
-            getString(R.string.distributes_parametrized, it.playerName, it.count)
+        val text = results.filter { it.count > 0 }.joinToString(separator = "\n") {
+            getString(R.string.distributes_parametrized, it.playerName, it.count * getHeight(adapter.displayedCards))
         }
-        if (text.isBlank()) {
-            text = "-"
+        binding.resultText.text = text
+    }
+
+    private fun getHeight(displayedCards: Int): Int {
+        var temp = displayedCards
+        var i = 4
+        while (temp > 0) {
+            temp -= i
+            i--
         }
-        Toast.makeText(this, text, Toast.LENGTH_LONG).show()
+        return i
     }
 }

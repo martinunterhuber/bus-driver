@@ -17,6 +17,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <TextView
+        android:id="@+id/result_text"
+        android:textColor="@color/black"
+        android:shadowColor="@color/white"
+        android:layout_margin="16dp"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        tools:text="Player 1 distributes 1\nPlayer 2 distributes 2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
     <Button
         android:id="@+id/next_button"
         android:layout_width="0dp"
