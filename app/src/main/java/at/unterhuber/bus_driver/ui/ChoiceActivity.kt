@@ -5,18 +5,19 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
 import com.example.bus_driver.databinding.ActivityGameBinding
-import at.unterhuber.bus_driver.fragments.CardFragment
+import at.unterhuber.bus_driver.fragments.PlayerCardFragment
 import at.unterhuber.bus_driver.fragments.ChoiceFragment
 import at.unterhuber.bus_driver.choices.Choice
 import at.unterhuber.bus_driver.fragments.ChoiceResultFragment
 import at.unterhuber.bus_driver.game.Game
 import at.unterhuber.bus_driver.game.Player
+import at.unterhuber.bus_driver.util.ChoiceListener
 
-class ChoiceActivity : AppCompatActivity() {
+class ChoiceActivity : AppCompatActivity(), ChoiceListener {
     private lateinit var binding: ActivityGameBinding
     private lateinit var game: Game
     private lateinit var choiceFragment: ChoiceFragment
-    private lateinit var cardFragment: CardFragment
+    private lateinit var playerCardFragment: PlayerCardFragment
     private lateinit var choiceResultFragment: ChoiceResultFragment
     private val ROUND_CHOICES = listOf(
         listOf(Choice.TREE, Choice.NOT_TREE),
@@ -41,11 +42,13 @@ class ChoiceActivity : AppCompatActivity() {
             game.init(this)
         }
         game.shuffleDeck()
+        startActivity(Intent(this, BusDriverActivity::class.java))
+        finish()
 
-        cardFragment = CardFragment(game.getCurrentPlayer())
+        playerCardFragment = PlayerCardFragment(game.getCurrentPlayer())
         supportFragmentManager
             .beginTransaction()
-            .add(binding.cardsFragmentContainer.id, cardFragment)
+            .add(binding.cardsFragmentContainer.id, playerCardFragment)
             .commit()
         doRound()
     }
@@ -60,14 +63,14 @@ class ChoiceActivity : AppCompatActivity() {
             .commit()
     }
 
-    fun choice(choice: Choice){
+    override fun choice(choice: Choice){
         choiceResultFragment = ChoiceResultFragment(game.isCorrectChoice(choice))
         supportFragmentManager
             .beginTransaction()
             .remove(choiceFragment)
             .add(binding.fragmentContainerView.id, choiceResultFragment)
             .commit()
-        cardFragment.updateCards(game.getCurrentPlayer())
+        playerCardFragment.updateCards(game.getCurrentPlayer())
     }
 
     fun next() {
@@ -76,7 +79,7 @@ class ChoiceActivity : AppCompatActivity() {
             .beginTransaction()
             .remove(choiceResultFragment)
             .commit()
-        cardFragment.updateCards(game.getCurrentPlayer())
+        playerCardFragment.updateCards(game.getCurrentPlayer())
         if (game.isLastRound()) {
             startActivity(Intent(this, PyramidActivity::class.java))
             finish()

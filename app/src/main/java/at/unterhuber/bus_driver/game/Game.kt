@@ -8,9 +8,11 @@ import at.unterhuber.bus_driver.choices.Choice
 
 class Game {
     private lateinit var players: List<Player>
-    private val cardDeck = CardDeck()
+    private var cardDeck = CardDeck()
     private var currentPlayerIndex = 0
     var currentRound = 0
+    private var busDriverCardIndex = 0
+    var busDriverCards = ArrayList<Card>()
 
     companion object {
         val instance = Game()
@@ -26,6 +28,10 @@ class Game {
 
     fun getCurrentPlayer(): Player {
         return players[currentPlayerIndex]
+    }
+
+    fun setCurrentPlayer(player: Player) {
+        currentPlayerIndex = players.indexOf(player)
     }
 
     fun updateCurrentPlayer() {
@@ -60,15 +66,67 @@ class Game {
         return cardDeck.getNextCard()
     }
 
-    private fun getPlayerSameRankCardCount(player: Player, rank: Rank): Int {
-        return player.cards.count { it.rank == rank }
+    fun removePlayersSameRankCards(rank: Rank) {
+        for (player in players) {
+            player.cards.removeIf { it.rank == rank }
+        }
     }
 
     fun getPlayersSameRankCardCount(rank: Rank): ArrayList<Result> {
         val results = ArrayList<Result>()
         for (player in players) {
-            results.add(Result(player.name, getPlayerSameRankCardCount(player, rank)))
+            results.add(Result(player.name, player.cards.count { it.rank == rank }))
         }
         return results
+    }
+
+    private fun shuffleNewDeck() {
+        cardDeck = CardDeck()
+        shuffleDeck()
+    }
+
+    fun getLosingPlayer(): Player {
+        var losingPlayer = players[0]
+        for (player in players) {
+            if (player.cards.size > losingPlayer.cards.size) {
+                losingPlayer = player
+            } else if (
+                player.cards.size == losingPlayer.cards.size &&
+                player.getSumOfRanks() < losingPlayer.getSumOfRanks()) {
+                losingPlayer = player
+            }
+        }
+        return losingPlayer
+    }
+
+    fun initBusDriver() {
+        shuffleNewDeck()
+        setCurrentPlayer(getLosingPlayer())
+        for (i in 1..5) {
+            busDriverCards.add(cardDeck.getNextCard())
+        }
+        busDriverCardIndex = 0
+    }
+
+    fun busDriverChoice(choice: Choice): Boolean {
+        val nextCard = cardDeck.getNextCard()
+        val isCorrect = when(choice) {
+            Choice.ABOVE -> nextCard > busDriverCards[busDriverCardIndex]
+            Choice.BELOW -> nextCard < busDriverCards[busDriverCardIndex]
+            else -> false
+        }
+
+        busDriverCards[busDriverCardIndex] = nextCard
+
+        if (isCorrect) {
+            busDriverCardIndex++
+        } else {
+            busDriverCardIndex = 0
+        }
+        return isCorrect
+    }
+
+    fun busDriverHasFinished(): Boolean {
+        return busDriverCardIndex == 5
     }
 }

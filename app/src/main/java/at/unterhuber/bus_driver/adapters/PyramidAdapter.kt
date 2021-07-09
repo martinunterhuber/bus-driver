@@ -63,6 +63,6 @@ class PyramidAdapter(private val cards: ArrayList<Card>, private val context: Co
     }
 
     fun reachedLimit(): Boolean {
-        return displayedCards == itemCount
+        return displayedCards == itemCount - 1
     }
 }

@@ -1,9 +1,9 @@
 package at.unterhuber.bus_driver.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import at.unterhuber.bus_driver.adapters.PyramidAdapter
 import at.unterhuber.bus_driver.cards.Card
 import at.unterhuber.bus_driver.game.Game
@@ -33,7 +33,7 @@ class PyramidActivity: AppCompatActivity() {
         }
         binding.nextButton.setOnClickListener {
             if (adapter.reachedLimit()) {
-                // TODO: start next activity
+                startActivity(Intent(this, BusDriverActivity::class.java))
                 finish()
             }
             val card = adapter.nextCard()
@@ -44,7 +44,11 @@ class PyramidActivity: AppCompatActivity() {
 
     private fun getResults(card: Card) {
         val results = Game.instance.getPlayersSameRankCardCount(card.rank)
-        val text = results.filter { it.count > 0 }.joinToString(separator = "\n") { "${it.playerName} distributes ${it.count} sips!" }
+        Game.instance.removePlayersSameRankCards(card.rank)
+        var text = results.filter { it.count > 0 }.joinToString(separator = "\n") { "${it.playerName} distributes ${it.count} sips!" }
+        if (text.isBlank()) {
+            text = "-"
+        }
         Toast.makeText(this, text, Toast.LENGTH_LONG).show()
     }
 }
