@@ -6,7 +6,7 @@
 
     <include
         android:id="@+id/choice1"
-        layout="@layout/choice_view"
+        layout="@layout/view_choice"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/choice2"
         app:layout_constraintTop_toTopOf="parent"
@@ -15,7 +15,7 @@
 
     <include
         android:id="@+id/choice2"
-        layout="@layout/choice_view"
+        layout="@layout/view_choice"
         app:layout_constraintStart_toEndOf="@id/choice1"
         app:layout_constraintEnd_toStartOf="@id/choice3"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,7 +24,7 @@
 
     <include
         android:id="@+id/choice3"
-        layout="@layout/choice_view"
+        layout="@layout/view_choice"
         app:layout_constraintStart_toEndOf="@id/choice2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

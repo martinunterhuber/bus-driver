@@ -29,7 +29,7 @@ class PyramidAdapter(private val cards: ArrayList<Card>, private val context: Co
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView: View = LayoutInflater.from(parent.context).inflate(R.layout.card_view, parent, false)
+        val itemView: View = LayoutInflater.from(parent.context).inflate(R.layout.item_card_fixed, parent, false)
         return ViewHolder(itemView)
     }
 

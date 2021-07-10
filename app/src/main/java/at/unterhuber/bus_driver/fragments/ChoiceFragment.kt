@@ -8,9 +8,8 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import com.example.bus_driver.databinding.FragmentChoiceBinding
 import at.unterhuber.bus_driver.choices.Choice
-import at.unterhuber.bus_driver.ui.ChoiceActivity
 import at.unterhuber.bus_driver.util.ChoiceListener
-import com.example.bus_driver.databinding.ChoiceViewBinding
+import com.example.bus_driver.databinding.ViewChoiceBinding
 
 class ChoiceFragment(private val choices: List<Choice>) : Fragment() {
     private lateinit var binding: FragmentChoiceBinding
@@ -36,7 +35,7 @@ class ChoiceFragment(private val choices: List<Choice>) : Fragment() {
         }
     }
 
-    private fun setChoice(choiceBinding: ChoiceViewBinding, choice: Choice) {
+    private fun setChoice(choiceBinding: ViewChoiceBinding, choice: Choice) {
         choiceBinding.box.setOnClickListener{
             (requireActivity() as ChoiceListener).choice(choice)
         }

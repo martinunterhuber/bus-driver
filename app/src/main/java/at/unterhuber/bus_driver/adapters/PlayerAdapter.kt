@@ -15,7 +15,7 @@ class PlayerAdapter(private val context: Context) : RecyclerView.Adapter<PlayerA
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.new_player_item, parent, false)
+            .inflate(R.layout.item_player_name, parent, false)
         val holder =  ViewHolder(view)
         holder.setIsRecyclable(false)
         return holder
@@ -24,7 +24,7 @@ class PlayerAdapter(private val context: Context) : RecyclerView.Adapter<PlayerA
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.playerName.hint = context.getString(R.string.player_n, position + 1)
         holder.playerName.setText(players[position])
-        holder.playerName.doOnTextChanged { text, start, before, count -> players[position] = holder.playerName.text.toString() }
+        holder.playerName.doOnTextChanged { _, _, _, _ -> players[position] = holder.playerName.text.toString() }
     }
 
     override fun getItemCount(): Int {
@@ -47,7 +47,7 @@ class PlayerAdapter(private val context: Context) : RecyclerView.Adapter<PlayerA
 
     override fun onViewDetachedFromWindow(holder: ViewHolder) {
         super.onViewDetachedFromWindow(holder)
-        holder.playerName.doOnTextChanged{ _, _, _, _ -> {} }
+        holder.playerName.doOnTextChanged{ _, _, _, _ -> run {} }
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

@@ -27,9 +27,9 @@ class MainActivity : AppCompatActivity() {
         binding.removePlayer.setOnClickListener{adapter.removePlayer()}
         binding.startButton.setOnClickListener{startGame()}
 
-        binding.rounds.adapter = ArrayAdapter(this, R.layout.spinner_item, (1..4).toList())
+        binding.rounds.adapter = ArrayAdapter(this, R.layout.item_int_spinner, (1..4).toList())
         binding.rounds.setSelection(3)
-        binding.pyramidHeight.adapter = ArrayAdapter(this, R.layout.spinner_item, (1..5).toList())
+        binding.pyramidHeight.adapter = ArrayAdapter(this, R.layout.item_int_spinner, (1..5).toList())
         binding.pyramidHeight.setSelection(3)
     }
 

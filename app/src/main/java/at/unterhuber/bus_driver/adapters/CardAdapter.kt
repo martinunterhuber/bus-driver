@@ -35,7 +35,7 @@ class CardAdapter(private var cards: ArrayList<Card>, private val context: Conte
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView: View = LayoutInflater.from(parent.context).inflate(R.layout.card_view2, parent, false)
+        val itemView: View = LayoutInflater.from(parent.context).inflate(R.layout.item_card_variable, parent, false)
         return ViewHolder(itemView)
     }
 

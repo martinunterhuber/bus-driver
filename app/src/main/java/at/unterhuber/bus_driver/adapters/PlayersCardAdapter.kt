@@ -12,7 +12,7 @@ import at.unterhuber.bus_driver.cards.Card
 import com.example.bus_driver.R
 import com.google.android.flexbox.FlexboxLayoutManager
 
-class CardAdapter2(private val cards: List<ArrayList<Card>>, private val players: List<String>,private val context: Context): RecyclerView.Adapter<CardAdapter2.ViewHolder>() {
+class PlayersCardAdapter(private val cards: List<ArrayList<Card>>, private val players: List<String>, private val context: Context): RecyclerView.Adapter<PlayersCardAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val imageView: ImageView = itemView.findViewById(R.id.imageView)
@@ -43,7 +43,7 @@ class CardAdapter2(private val cards: List<ArrayList<Card>>, private val players
     class Position2D(val i: Int, val j: Int)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView: View = LayoutInflater.from(parent.context).inflate(R.layout.image_view3, parent, false)
+        val itemView: View = LayoutInflater.from(parent.context).inflate(R.layout.item_player_card, parent, false)
         return ViewHolder(itemView)
     }
 
