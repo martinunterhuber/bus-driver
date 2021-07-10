@@ -2,6 +2,7 @@ package at.unterhuber.bus_driver.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import at.unterhuber.bus_driver.adapters.PyramidAdapter
@@ -61,7 +62,9 @@ class PyramidActivity: AppCompatActivity() {
             getString(R.string.distributes_parametrized, it.playerName, it.count * getHeight(adapter.displayedCards))
         }
         if (text.isNotBlank()) {
-            Snackbar.make(binding.root, text, Snackbar.LENGTH_INDEFINITE).setAction(getString(R.string.ok)) {}.show()
+            val snackbar = Snackbar.make(binding.root, text, Snackbar.LENGTH_INDEFINITE).setAction(getString(R.string.ok)) {}
+            snackbar.view.findViewById<TextView>(com.google.android.material.R.id.snackbar_text).maxLines = 3
+            snackbar.show()
         }
     }
 
