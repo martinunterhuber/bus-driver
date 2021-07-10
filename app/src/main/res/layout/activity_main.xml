@@ -23,6 +23,7 @@
         android:layout_margin="16dp"
         android:clickable="true"
         android:focusable="true"
+        app:tint="@color/white"
         android:backgroundTint="@color/green_500"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,6 +38,7 @@
         app:layout_constraintStart_toEndOf="@id/add_player"
         android:backgroundTint="@color/red_500"
         android:clickable="true"
+        app:tint="@color/white"
         app:srcCompat="@drawable/ic_baseline_remove_24"
         android:focusable="true" />
 

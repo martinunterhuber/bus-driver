@@ -27,5 +27,8 @@
         <activity android:name="at.unterhuber.bus_driver.ui.BusDriverActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="landscape"  />
+        <activity android:name="at.unterhuber.bus_driver.ui.PlayerCardsActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="landscape"  />
     </application>
 </manifest>

@@ -45,6 +45,11 @@ class PyramidActivity: AppCompatActivity() {
                 getResults(card)
             }
         }
+        binding.showCards.setOnClickListener{ showCards() }
+    }
+
+    private fun showCards() {
+        startActivity(Intent(this, PlayerCardsActivity::class.java))
     }
 
     private fun getCountFromDepth(): Int {

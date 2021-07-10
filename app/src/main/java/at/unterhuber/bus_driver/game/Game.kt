@@ -7,7 +7,7 @@ import at.unterhuber.bus_driver.cards.Suite
 import at.unterhuber.bus_driver.choices.Choice
 
 class Game {
-    private lateinit var players: List<Player>
+    lateinit var players: List<Player>
     private var cardDeck = CardDeck()
     private var currentPlayerIndex = 0
     var currentRound = 0
