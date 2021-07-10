@@ -12,5 +12,6 @@ enum class Choice(@DrawableRes val drawable: Int, @StringRes val text: Int) {
     IN_BETWEEN(R.drawable.ic_baseline_compare_arrows_24, R.string.inside),
     OUTSIDE(R.drawable.ic_baseline_swap_horiz_24, R.string.outside),
     HAVE(R.drawable.ic_baseline_check_24_black, R.string.have),
-    NOT_HAVE(R.drawable.ic_baseline_close_24_black, R.string.not_have)
+    NOT_HAVE(R.drawable.ic_baseline_close_24_black, R.string.not_have),
+    EQUALS(R.drawable.ic_baseline_equals_24, R.string.equals)
 }

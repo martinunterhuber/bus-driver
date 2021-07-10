@@ -1,9 +1,7 @@
 package at.unterhuber.bus_driver.ui
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import at.unterhuber.bus_driver.cards.Card
 import at.unterhuber.bus_driver.choices.Choice
 import at.unterhuber.bus_driver.fragments.CardFragment
 import at.unterhuber.bus_driver.fragments.ChoiceFragment
@@ -20,7 +18,7 @@ class BusDriverActivity: AppCompatActivity(), ChoiceListener {
     private lateinit var choiceResultFragment: ChoiceResultFragment
     private lateinit var player: Player
 
-    private val choiceFragment = ChoiceFragment(Choice.BELOW, Choice.ABOVE)
+    private val choiceFragment = ChoiceFragment(listOf(Choice.BELOW, Choice.EQUALS, Choice.ABOVE))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +31,7 @@ class BusDriverActivity: AppCompatActivity(), ChoiceListener {
 
         binding.title.text = player.name
 
-        cardFragment = CardFragment(game.busDriverCards)
+        cardFragment = CardFragment(game.busDriverCards, true)
         supportFragmentManager
             .beginTransaction()
             .add(binding.cardsFragmentContainer.id, cardFragment)
@@ -51,6 +49,9 @@ class BusDriverActivity: AppCompatActivity(), ChoiceListener {
     }
 
     override fun choice(choice: Choice){
+        if (game.busDriverIsAtLastCard()) {
+            cardFragment.showLast()
+        }
         choiceResultFragment = ChoiceResultFragment(game.busDriverChoice(choice))
         cardFragment.updatedCards()
 

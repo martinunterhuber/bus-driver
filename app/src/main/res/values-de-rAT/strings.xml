@@ -12,5 +12,6 @@
     <string name="outside">Außaholb</string>
     <string name="tree">Bam</string>
     <string name="not_tree">Nit Bam</string>
+    <string name="equals">Gleich</string>
     <string name="distributes_parametrized">%1$s vatoalt %2$d Schlicke!</string>
 </resources>

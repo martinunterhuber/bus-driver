@@ -15,6 +15,7 @@ private const val EPSILON = 0.001f
 
 class CardAdapter(private var cards: ArrayList<Card>, private val context: Context): RecyclerView.Adapter<CardAdapter.ViewHolder>() {
     private var selectedPosition = 0
+    var hideLast = false
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val imageView: ImageView = itemView.findViewById(R.id.imageView)
@@ -41,6 +42,7 @@ class CardAdapter(private var cards: ArrayList<Card>, private val context: Conte
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val drawableName = cards[position].getDrawableName()
         holder.bindTo(
+            if (position == itemCount - 1 && hideLast) R.drawable.backside else
             context.resources.getIdentifier(drawableName, "drawable", context.packageName),
             position == selectedPosition,
             itemCount

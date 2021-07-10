@@ -12,5 +12,6 @@
     <string name="outside">Außerhalb</string>
     <string name="tree">Baum</string>
     <string name="not_tree">Nicht Baum</string>
+    <string name="equals">Gleich</string>
     <string name="distributes_parametrized">%1$s verteilt %2$d Schlücke!</string>
 </resources>

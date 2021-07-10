@@ -25,4 +25,8 @@ data class Card (val rank: Rank, val suite: Suite) {
     fun getDrawableName() : String {
         return "${suite.name.lowercase()}_${rank.name.lowercase()}"
     }
+
+    fun isEqualToAtLeastOne(vararg cards: Card): Boolean {
+        return cards.any { this.rank == it.rank }
+    }
 }

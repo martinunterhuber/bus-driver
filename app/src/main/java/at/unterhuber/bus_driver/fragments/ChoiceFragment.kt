@@ -10,8 +10,9 @@ import com.example.bus_driver.databinding.FragmentChoiceBinding
 import at.unterhuber.bus_driver.choices.Choice
 import at.unterhuber.bus_driver.ui.ChoiceActivity
 import at.unterhuber.bus_driver.util.ChoiceListener
+import com.example.bus_driver.databinding.ChoiceViewBinding
 
-class ChoiceFragment(private val choice1: Choice, private val choice2: Choice) : Fragment() {
+class ChoiceFragment(private val choices: List<Choice>) : Fragment() {
     private lateinit var binding: FragmentChoiceBinding
 
     override fun onCreateView(
@@ -25,15 +26,21 @@ class ChoiceFragment(private val choice1: Choice, private val choice2: Choice) :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.box1.setOnClickListener{
-            (requireActivity() as ChoiceListener).choice(choice1)
+        setChoice(binding.choice1, choices[0])
+        setChoice(binding.choice2, choices[1])
+        if (choices.size > 2) {
+            setChoice(binding.choice3, choices[2])
+            binding.choice3.root.visibility = View.VISIBLE
+        } else {
+            binding.choice3.root.visibility = View.GONE
         }
-        binding.box2.setOnClickListener{
-            (requireActivity() as ChoiceListener).choice(choice2)
+    }
+
+    private fun setChoice(choiceBinding: ChoiceViewBinding, choice: Choice) {
+        choiceBinding.box.setOnClickListener{
+            (requireActivity() as ChoiceListener).choice(choice)
         }
-        binding.symbolBox1.setImageDrawable(AppCompatResources.getDrawable(requireContext(), choice1.drawable))
-        binding.symbolBox2.setImageDrawable(AppCompatResources.getDrawable(requireContext(), choice2.drawable))
-        binding.textBox1.setText(choice1.text)
-        binding.textBox2.setText(choice2.text)
+        choiceBinding.symbolBox.setImageDrawable(AppCompatResources.getDrawable(requireContext(), choice.drawable))
+        choiceBinding.textBox.setText(choice.text)
     }
 }

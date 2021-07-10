@@ -11,7 +11,7 @@ import at.unterhuber.bus_driver.cards.Card
 import com.example.bus_driver.databinding.FragmentCardsBinding
 import com.google.android.flexbox.*
 
-class CardFragment(private val cards: ArrayList<Card>) : Fragment() {
+class CardFragment(private val cards: ArrayList<Card>, private var hideLast: Boolean = false) : Fragment() {
     private lateinit var binding: FragmentCardsBinding
     private lateinit var adapter: CardAdapter
 
@@ -27,6 +27,7 @@ class CardFragment(private val cards: ArrayList<Card>) : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         adapter = CardAdapter(cards, requireContext())
+        adapter.hideLast = hideLast
         binding.cardRecycler.adapter = adapter
         binding.cardRecycler.layoutManager = FlexboxLayoutManager(requireContext()).apply {
             flexWrap = FlexWrap.WRAP
@@ -43,5 +44,11 @@ class CardFragment(private val cards: ArrayList<Card>) : Fragment() {
 
     fun updatedCards() {
         adapter.notifyDataSetChanged()
+    }
+
+    fun showLast() {
+        hideLast = false
+        adapter.hideLast = false
+        updatedCards()
     }
 }

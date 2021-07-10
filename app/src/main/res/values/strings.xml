@@ -12,5 +12,6 @@
     <string name="outside">Outside</string>
     <string name="tree">Tree</string>
     <string name="not_tree">Not Tree</string>
+    <string name="equals">Equals</string>
     <string name="distributes_parametrized">%1$s distributes %2$d sips!</string>
 </resources>

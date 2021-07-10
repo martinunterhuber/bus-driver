@@ -58,6 +58,7 @@ class Game {
             Choice.OUTSIDE -> nextCard.outside(getCurrentPlayer().cards[0], getCurrentPlayer().cards[1])
             Choice.HAVE -> !nextCard.hasDifferentSuiteThan(*getCurrentPlayer().cards.toTypedArray())
             Choice.NOT_HAVE -> nextCard.hasDifferentSuiteThan(*getCurrentPlayer().cards.toTypedArray())
+            Choice.EQUALS -> nextCard.isEqualToAtLeastOne(*getCurrentPlayer().cards.toTypedArray())
         }
         getCurrentPlayer().cards.add(nextCard)
         return isCorrect
@@ -123,6 +124,7 @@ class Game {
         val isCorrect = when(choice) {
             Choice.ABOVE -> nextCard > busDriverCards[busDriverCardIndex]
             Choice.BELOW -> nextCard < busDriverCards[busDriverCardIndex]
+            Choice.EQUALS -> nextCard.rank == busDriverCards[busDriverCardIndex].rank
             else -> false
         }
 
@@ -140,7 +142,7 @@ class Game {
         return busDriverCardIndex == 5
     }
 
-    fun numberOfCardsLeft(): Int {
-        return cardDeck.size()
+    fun busDriverIsAtLastCard(): Boolean {
+        return busDriverCardIndex == 4
     }
 }

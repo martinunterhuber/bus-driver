@@ -21,8 +21,8 @@ class ChoiceActivity : AppCompatActivity(), ChoiceListener {
     private lateinit var choiceResultFragment: ChoiceResultFragment
     private val ROUND_CHOICES = listOf(
         listOf(Choice.TREE, Choice.NOT_TREE),
-        listOf(Choice.ABOVE, Choice.BELOW),
-        listOf(Choice.IN_BETWEEN, Choice.OUTSIDE),
+        listOf(Choice.ABOVE, Choice.EQUALS, Choice.BELOW),
+        listOf(Choice.IN_BETWEEN, Choice.EQUALS, Choice.OUTSIDE),
         listOf(Choice.HAVE, Choice.NOT_HAVE)
     )
 
@@ -54,7 +54,7 @@ class ChoiceActivity : AppCompatActivity(), ChoiceListener {
 
     private fun doRound() {
         binding.title.text = game.getCurrentPlayer().name
-        choiceFragment = ChoiceFragment(ROUND_CHOICES[game.currentRound][0], ROUND_CHOICES[game.currentRound][1])
+        choiceFragment = ChoiceFragment(ROUND_CHOICES[game.currentRound])
         supportFragmentManager
             .beginTransaction()
             .add(binding.fragmentContainerView.id, choiceFragment)
