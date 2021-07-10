@@ -14,4 +14,8 @@
     <string name="not_tree">Nit Bam</string>
     <string name="equals">Gleich</string>
     <string name="distributes_parametrized">%1$s vatoalt %2$d Schlicke!</string>
+    <string name="pyramid_height">Pyramidenhöhe</string>
+    <string name="rounds">Runden</string>
+    <string name="ok">Passt</string>
+    <string name="not_enough_cards">Es gib nit genüe Korten zen starten!</string>
 </resources>

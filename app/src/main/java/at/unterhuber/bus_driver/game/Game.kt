@@ -13,18 +13,22 @@ class Game {
     var currentRound = 0
     var busDriverCardIndex = 0
     var busDriverCards = ArrayList<Card>()
+    var rounds: Int = 4
+    var pyramidHeight: Int = 4
 
     companion object {
         val instance = Game()
     }
 
-    fun init(players: List<Player>) {
+    fun init(players: List<Player>, rounds: Int, pyramidHeight: Int) {
         this.players = players
+        this.rounds = rounds
+        this.pyramidHeight = pyramidHeight
         cardDeck = CardDeck()
         currentPlayerIndex = 0
         currentRound = 0
         busDriverCardIndex = 0
-        busDriverCards = ArrayList<Card>()
+        busDriverCards = ArrayList()
     }
 
     fun shuffleDeck() {
@@ -65,7 +69,7 @@ class Game {
     }
 
     fun isLastRound(): Boolean {
-        return currentRound == 4
+        return currentRound == rounds
     }
 
     fun drawCard(): Card {

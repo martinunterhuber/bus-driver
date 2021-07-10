@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BusDriver">
         <activity android:name="at.unterhuber.bus_driver.ui.MainActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize" >
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="landscape"  >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,10 +19,13 @@
             </intent-filter>
         </activity>
         <activity android:name="at.unterhuber.bus_driver.ui.ChoiceActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize" />
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="landscape"  />
         <activity android:name="at.unterhuber.bus_driver.ui.PyramidActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize" />
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="landscape"  />
         <activity android:name="at.unterhuber.bus_driver.ui.BusDriverActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize" />
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="landscape"  />
     </application>
 </manifest>

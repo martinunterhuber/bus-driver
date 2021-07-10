@@ -39,7 +39,7 @@ class ChoiceActivity : AppCompatActivity(), ChoiceListener {
             Player(it)
         }.apply {
             game = Game.instance
-            game.init(this)
+            game.init(this, intent.getIntExtra("ROUNDS", 4), intent.getIntExtra("PYRAMID_HEIGHT", 4))
         }
         game.shuffleDeck()
 
@@ -73,15 +73,15 @@ class ChoiceActivity : AppCompatActivity(), ChoiceListener {
 
     override fun next() {
         game.updateCurrentPlayer()
-        supportFragmentManager
-            .beginTransaction()
-            .remove(choiceResultFragment)
-            .commit()
-        playerCardFragment.updateCards(game.getCurrentPlayer())
         if (game.isLastRound()) {
             startActivity(Intent(this, PyramidActivity::class.java))
             finish()
         } else {
+            supportFragmentManager
+                .beginTransaction()
+                .remove(choiceResultFragment)
+                .commit()
+            playerCardFragment.updateCards(game.getCurrentPlayer())
             doRound()
         }
     }

@@ -14,4 +14,8 @@
     <string name="not_tree">Nicht Baum</string>
     <string name="equals">Gleich</string>
     <string name="distributes_parametrized">%1$s verteilt %2$d Schlücke!</string>
+    <string name="pyramid_height">Pyramidenhöhe</string>
+    <string name="rounds">Runden</string>
+    <string name="ok">Ok</string>
+    <string name="not_enough_cards">Es gibt nicht genug Karten um das Spiel zu starten!</string>
 </resources>

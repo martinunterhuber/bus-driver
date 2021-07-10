@@ -10,6 +10,7 @@ import at.unterhuber.bus_driver.game.Game
 import com.example.bus_driver.R
 import com.example.bus_driver.databinding.ActivityPyramidBinding
 import com.google.android.flexbox.*
+import com.google.android.material.snackbar.Snackbar
 
 class PyramidActivity: AppCompatActivity() {
     private lateinit var binding: ActivityPyramidBinding
@@ -21,6 +22,7 @@ class PyramidActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPyramidBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        depth = Game.instance.pyramidHeight
         for (i in 1..getCountFromDepth()) {
             cards.add(Game.instance.drawCard())
         }
@@ -58,7 +60,9 @@ class PyramidActivity: AppCompatActivity() {
         val text = results.filter { it.count > 0 }.joinToString(separator = "\n") {
             getString(R.string.distributes_parametrized, it.playerName, it.count * getHeight(adapter.displayedCards))
         }
-        binding.resultText.text = text
+        if (text.isNotBlank()) {
+            Snackbar.make(binding.root, text, Snackbar.LENGTH_INDEFINITE).setAction(getString(R.string.ok)) {}.show()
+        }
     }
 
     private fun getHeight(displayedCards: Int): Int {

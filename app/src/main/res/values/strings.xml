@@ -14,4 +14,8 @@
     <string name="not_tree">Not Tree</string>
     <string name="equals">Equals</string>
     <string name="distributes_parametrized">%1$s distributes %2$d sips!</string>
+    <string name="pyramid_height">Pyramid Height</string>
+    <string name="rounds">Rounds</string>
+    <string name="ok">Ok</string>
+    <string name="not_enough_cards">There are not enough cards to start the game!</string>
 </resources>
