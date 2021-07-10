@@ -13,13 +13,13 @@ import com.google.android.flexbox.FlexboxLayoutManager
 
 private const val EPSILON = 0.001f
 
-class CardAdapter(private val cards: ArrayList<Card>, private val context: Context): RecyclerView.Adapter<CardAdapter.ViewHolder>() {
+class CardAdapter(private var cards: ArrayList<Card>, private val context: Context): RecyclerView.Adapter<CardAdapter.ViewHolder>() {
     private var selectedPosition = 0
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val imageView: ImageView = itemView.findViewById(R.id.imageView)
 
-        internal fun bindTo(@DrawableRes resourceId: Int, isSelected: Boolean) {
+        internal fun bindTo(@DrawableRes resourceId: Int, isSelected: Boolean, itemCount: Int) {
             imageView.setImageResource(resourceId)
             val lp = imageView.layoutParams
             if (isSelected) {
@@ -28,7 +28,7 @@ class CardAdapter(private val cards: ArrayList<Card>, private val context: Conte
                 imageView.setBackgroundResource(0)
             }
             if (lp is FlexboxLayoutManager.LayoutParams) {
-                lp.flexBasisPercent = 0.2f - EPSILON
+                lp.flexBasisPercent = 1f / itemCount - EPSILON
             }
         }
     }
@@ -40,7 +40,11 @@ class CardAdapter(private val cards: ArrayList<Card>, private val context: Conte
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val drawableName = cards[position].getDrawableName()
-        holder.bindTo(context.resources.getIdentifier(drawableName, "drawable", context.packageName), position == selectedPosition)
+        holder.bindTo(
+            context.resources.getIdentifier(drawableName, "drawable", context.packageName),
+            position == selectedPosition,
+            itemCount
+        )
     }
 
     fun setSelectedPosition(position: Int) {
@@ -49,5 +53,10 @@ class CardAdapter(private val cards: ArrayList<Card>, private val context: Conte
 
     override fun getItemCount(): Int {
         return cards.size
+    }
+
+    fun updateCards(cards: ArrayList<Card>) {
+        this.cards = cards
+        notifyDataSetChanged()
     }
 }

@@ -21,10 +21,6 @@ class PyramidActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPyramidBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        // TODO: make this more generic
-        if (Game.instance.numberOfCardsLeft() < 14) {
-            depth = 3
-        }
         for (i in 1..getCountFromDepth()) {
             cards.add(Game.instance.drawCard())
         }

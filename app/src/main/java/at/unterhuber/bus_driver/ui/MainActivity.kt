@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         binding.players.adapter = adapter
         binding.players.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.addPlayer.setOnClickListener{adapter.addPlayer()}
-
+        binding.removePlayer.setOnClickListener{adapter.removePlayer()}
         binding.startButton.setOnClickListener{startGame()}
     }
 

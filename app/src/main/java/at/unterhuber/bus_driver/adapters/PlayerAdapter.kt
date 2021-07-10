@@ -37,6 +37,14 @@ class PlayerAdapter(private val context: Context) : RecyclerView.Adapter<PlayerA
         notifyItemInserted(count - 1)
     }
 
+    fun removePlayer() {
+        if (count > 1) {
+            players.removeLast()
+            count--
+            notifyDataSetChanged()
+        }
+    }
+
     override fun onViewDetachedFromWindow(holder: ViewHolder) {
         super.onViewDetachedFromWindow(holder)
         holder.playerName.doOnTextChanged{ _, _, _, _ -> {} }

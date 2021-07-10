@@ -22,7 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/fragment_container_view"
         app:layout_constraintTop_toBottomOf="@id/title"
-        tools:layout="@layout/fragment_player_cards" />
+        tools:layout="@layout/fragment_cards" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container_view"

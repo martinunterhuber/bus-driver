@@ -1,6 +1,5 @@
 package at.unterhuber.bus_driver.adapters
 
-import android.R.drawable
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -17,7 +16,7 @@ class PyramidAdapter(private val cards: ArrayList<Card>, private val context: Co
     var displayedCards = 0
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageView: ImageView = itemView.findViewById(R.id.imageView)
+        private val imageView: ImageView = itemView.findViewById(R.id.imageView)
 
         internal fun bindTo(@DrawableRes resourceId: Int, wrap: Boolean) {
             imageView.setImageResource(resourceId)

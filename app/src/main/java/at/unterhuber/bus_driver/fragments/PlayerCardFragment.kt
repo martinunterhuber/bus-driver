@@ -4,64 +4,42 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import androidx.appcompat.content.res.AppCompatResources
 
 import androidx.fragment.app.Fragment
-import com.example.bus_driver.R
+import at.unterhuber.bus_driver.adapters.CardAdapter
 
 import at.unterhuber.bus_driver.game.Player
-import com.example.bus_driver.databinding.FragmentPlayerCardsBinding
+import com.example.bus_driver.databinding.FragmentCardsBinding
+import com.google.android.flexbox.*
 
 class PlayerCardFragment(private val startPlayer: Player) : Fragment() {
-    private lateinit var binding: FragmentPlayerCardsBinding
-    private lateinit var cardImages: List<ImageView>
+    private lateinit var binding: FragmentCardsBinding
+    private lateinit var adapter: CardAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentPlayerCardsBinding.inflate(inflater, container, false)
-        cardImages = listOf(binding.card1, binding.card2, binding.card3, binding.card4)
+        binding = FragmentCardsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        adapter = CardAdapter(ArrayList(), requireContext())
+        binding.cardRecycler.adapter = adapter
+        binding.cardRecycler.layoutManager = FlexboxLayoutManager(requireContext()).apply {
+            flexWrap = FlexWrap.WRAP
+            flexDirection = FlexDirection.ROW
+            alignItems = AlignItems.STRETCH
+            justifyContent = JustifyContent.CENTER
+        }
+        adapter.setSelectedPosition(-1)
         updateCards(startPlayer)
     }
 
     fun updateCards(player: Player) {
-        for ((index, cardImage) in cardImages.withIndex()) {
-            if (index < player.cards.size) {
-                setFrontSide(player.cards[index].getDrawableName(), cardImage)
-            } else {
-                setBackside(cardImage)
-            }
-        }
-    }
-
-    private fun setFrontSide(
-        drawableName: String,
-        cardImage: ImageView
-    ) {
-        val drawable =
-            resources.getIdentifier(drawableName, "drawable", requireActivity().packageName)
-        cardImage.setImageDrawable(
-            AppCompatResources.getDrawable(
-                requireContext(),
-                drawable
-            )
-        )
-    }
-
-    private fun setBackside(cardImage: ImageView) {
-        cardImage.setImageDrawable(
-            AppCompatResources.getDrawable(
-                requireContext(),
-                R.drawable.backside
-            )
-        )
+        adapter.updateCards(player.cards)
     }
 }
