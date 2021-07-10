@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Busfohrer</string>
     <string name="player_n">Spiela %1$d</string>
-    <string name="start_game">Spiel Starten</string>
+    <string name="start_game">Startn</string>
     <string name="next">Weita</string>
     <string name="have">Hunni</string>
     <string name="not_have">Hunni Nit</string>
