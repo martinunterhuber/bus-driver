@@ -2,9 +2,10 @@ package at.unterhuber.bus_driver.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 
-import com.example.bus_driver.databinding.ActivityGameBinding
+import at.unterhuber.bus_driver.databinding.ActivityGameBinding
 import at.unterhuber.bus_driver.fragments.PlayerCardFragment
 import at.unterhuber.bus_driver.fragments.ChoiceFragment
 import at.unterhuber.bus_driver.choices.Choice
@@ -32,6 +33,7 @@ class ChoiceActivity : AppCompatActivity(), ChoiceListener {
         setContentView(binding.root)
 
         initGame()
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
     private fun initGame() {

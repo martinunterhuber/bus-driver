@@ -2,7 +2,7 @@ package at.unterhuber.bus_driver.choices
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import com.example.bus_driver.R
+import at.unterhuber.bus_driver.R
 
 enum class Choice(@DrawableRes val drawable: Int, @StringRes val text: Int) {
     TREE(R.drawable.ic_baseline_park_24, R.string.tree),

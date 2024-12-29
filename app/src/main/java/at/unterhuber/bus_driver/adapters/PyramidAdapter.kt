@@ -8,7 +8,7 @@ import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import androidx.recyclerview.widget.RecyclerView
 import at.unterhuber.bus_driver.cards.Card
-import com.example.bus_driver.R
+import at.unterhuber.bus_driver.R
 import com.google.android.flexbox.FlexboxLayoutManager
 
 

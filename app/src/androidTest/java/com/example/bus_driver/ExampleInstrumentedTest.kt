@@ -1,4 +1,4 @@
-package com.example.bus_driver
+package at.unterhuber.bus_driver
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

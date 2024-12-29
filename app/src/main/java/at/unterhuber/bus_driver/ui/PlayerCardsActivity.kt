@@ -1,10 +1,11 @@
 package at.unterhuber.bus_driver.ui
 
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import at.unterhuber.bus_driver.adapters.PlayersCardAdapter
 import at.unterhuber.bus_driver.game.Game
-import com.example.bus_driver.databinding.ActivityPlayerCardsBinding
+import at.unterhuber.bus_driver.databinding.ActivityPlayerCardsBinding
 import com.google.android.flexbox.*
 
 class PlayerCardsActivity : AppCompatActivity() {
@@ -25,5 +26,6 @@ class PlayerCardsActivity : AppCompatActivity() {
         }
 
         binding.close.setOnClickListener{ finish() }
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 }

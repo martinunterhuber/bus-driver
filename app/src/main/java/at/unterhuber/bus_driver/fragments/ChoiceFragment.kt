@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
-import com.example.bus_driver.databinding.FragmentChoiceBinding
+import at.unterhuber.bus_driver.databinding.FragmentChoiceBinding
 import at.unterhuber.bus_driver.choices.Choice
 import at.unterhuber.bus_driver.util.ChoiceListener
-import com.example.bus_driver.databinding.ViewChoiceBinding
+import at.unterhuber.bus_driver.databinding.ViewChoiceBinding
 
 class ChoiceFragment(private val choices: List<Choice>) : Fragment() {
     private lateinit var binding: FragmentChoiceBinding

@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
-import com.example.bus_driver.R
-import com.example.bus_driver.databinding.FragmentChoiceResultBinding
+import at.unterhuber.bus_driver.R
+import at.unterhuber.bus_driver.databinding.FragmentChoiceResultBinding
 import at.unterhuber.bus_driver.ui.ChoiceActivity
 import at.unterhuber.bus_driver.util.ChoiceListener
 

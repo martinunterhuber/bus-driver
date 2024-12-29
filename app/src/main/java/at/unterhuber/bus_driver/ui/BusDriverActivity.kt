@@ -1,6 +1,7 @@
 package at.unterhuber.bus_driver.ui
 
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import at.unterhuber.bus_driver.choices.Choice
 import at.unterhuber.bus_driver.fragments.CardFragment
@@ -9,7 +10,7 @@ import at.unterhuber.bus_driver.fragments.ChoiceResultFragment
 import at.unterhuber.bus_driver.game.Game
 import at.unterhuber.bus_driver.game.Player
 import at.unterhuber.bus_driver.util.ChoiceListener
-import com.example.bus_driver.databinding.ActivityGameBinding
+import at.unterhuber.bus_driver.databinding.ActivityGameBinding
 
 class BusDriverActivity: AppCompatActivity(), ChoiceListener {
     private lateinit var binding: ActivityGameBinding
@@ -37,6 +38,7 @@ class BusDriverActivity: AppCompatActivity(), ChoiceListener {
             .add(binding.cardsFragmentContainer.id, cardFragment)
             .add(binding.fragmentContainerView.id, choiceFragment)
             .commit()
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
     private fun doRound() {

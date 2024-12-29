@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import at.unterhuber.bus_driver.adapters.CardAdapter
 import at.unterhuber.bus_driver.cards.Card
-import com.example.bus_driver.databinding.FragmentCardsBinding
+import at.unterhuber.bus_driver.databinding.FragmentCardsBinding
 import com.google.android.flexbox.*
 
 class CardFragment(private val cards: ArrayList<Card>, private var hideLast: Boolean = false) : Fragment() {

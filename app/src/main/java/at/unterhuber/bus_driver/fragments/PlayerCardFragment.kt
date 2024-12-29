@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import at.unterhuber.bus_driver.adapters.CardAdapter
 
 import at.unterhuber.bus_driver.game.Player
-import com.example.bus_driver.databinding.FragmentCardsBinding
+import at.unterhuber.bus_driver.databinding.FragmentCardsBinding
 import com.google.android.flexbox.*
 
 class PlayerCardFragment(private val startPlayer: Player) : Fragment() {

@@ -1,106 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="at.unterhuber.bus_driver.ui.MainActivity">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/players"
+<layout>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="16dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:listitem="@layout/item_player_name"
-        app:layout_constraintBottom_toTopOf="@id/add_player" />
+        android:layout_height="match_parent"
+        tools:context="at.unterhuber.bus_driver.ui.MainActivity">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_player"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:tint="@color/white"
-        app:borderWidth="0dp"
-        android:backgroundTint="@color/green_500"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_baseline_add_24" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/players"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:listitem="@layout/item_player_name"
+            app:layout_constraintBottom_toTopOf="@id/add_player" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/remove_player"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="8dp"
-        app:borderWidth="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/add_player"
-        android:backgroundTint="@color/red_500"
-        android:clickable="true"
-        app:tint="@color/white"
-        app:srcCompat="@drawable/ic_baseline_remove_24"
-        android:focusable="true" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:tint="@color/white"
+            app:borderWidth="0dp"
+            android:backgroundTint="@color/green_500"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_baseline_add_24" />
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/start_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:borderWidth="0dp"
-        android:backgroundTint="@color/purple_500"
-        android:clickable="true"
-        android:focusable="true"
-        android:text="@string/start_game"
-        app:iconTint="@color/white"
-        android:textColor="@color/white"
-        app:icon="@drawable/ic_baseline_play_arrow_24"
-        app:layout_constraintBottom_toBottomOf="@+id/remove_player"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/remove_player" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/remove_player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="8dp"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/add_player"
+            android:backgroundTint="@color/red_500"
+            android:clickable="true"
+            app:tint="@color/white"
+            app:srcCompat="@drawable/ic_baseline_remove_24"
+            android:focusable="true" />
 
-    <TextView
-        android:id="@+id/rounds_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/rounds"
-        app:layout_constraintStart_toEndOf="@id/remove_player"
-        app:layout_constraintTop_toTopOf="@id/remove_player"
-        app:layout_constraintBottom_toBottomOf="@id/remove_player"
-        app:layout_constraintEnd_toStartOf="@id/rounds" />
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/start_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:borderWidth="0dp"
+            android:backgroundTint="@color/purple_500"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/start_game"
+            app:iconTint="@color/white"
+            android:textColor="@color/white"
+            app:icon="@drawable/ic_baseline_play_arrow_24"
+            app:layout_constraintBottom_toBottomOf="@+id/remove_player"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/remove_player" />
 
-    <Spinner
-        android:id="@+id/rounds"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:listitem="@layout/support_simple_spinner_dropdown_item"
-        app:layout_constraintStart_toEndOf="@id/rounds_label"
-        app:layout_constraintTop_toTopOf="@id/remove_player"
-        app:layout_constraintBottom_toBottomOf="@id/remove_player"
-        app:layout_constraintEnd_toStartOf="@id/pyramid_height_label" />
+        <TextView
+            android:id="@+id/rounds_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rounds"
+            app:layout_constraintStart_toEndOf="@id/remove_player"
+            app:layout_constraintTop_toTopOf="@id/remove_player"
+            app:layout_constraintBottom_toBottomOf="@id/remove_player"
+            app:layout_constraintEnd_toStartOf="@id/rounds" />
 
-    <TextView
-        android:id="@+id/pyramid_height_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/pyramid_height"
-        app:layout_constraintStart_toEndOf="@id/rounds"
-        app:layout_constraintTop_toTopOf="@id/rounds"
-        app:layout_constraintBottom_toBottomOf="@id/rounds"
-        app:layout_constraintEnd_toStartOf="@id/pyramid_height" />
+        <Spinner
+            android:id="@+id/rounds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/support_simple_spinner_dropdown_item"
+            app:layout_constraintStart_toEndOf="@id/rounds_label"
+            app:layout_constraintTop_toTopOf="@id/remove_player"
+            app:layout_constraintBottom_toBottomOf="@id/remove_player"
+            app:layout_constraintEnd_toStartOf="@id/pyramid_height_label" />
 
-    <Spinner
-        android:id="@+id/pyramid_height"
-        android:layout_width="wrap_content"
-        tools:listitem="@layout/support_simple_spinner_dropdown_item"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/pyramid_height_label"
-        app:layout_constraintTop_toTopOf="@id/pyramid_height_label"
-        app:layout_constraintBottom_toBottomOf="@id/pyramid_height_label"
-        app:layout_constraintEnd_toStartOf="@id/start_button" />
+        <TextView
+            android:id="@+id/pyramid_height_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pyramid_height"
+            app:layout_constraintStart_toEndOf="@id/rounds"
+            app:layout_constraintTop_toTopOf="@id/rounds"
+            app:layout_constraintBottom_toBottomOf="@id/rounds"
+            app:layout_constraintEnd_toStartOf="@id/pyramid_height" />
+
+        <Spinner
+            android:id="@+id/pyramid_height"
+            android:layout_width="wrap_content"
+            tools:listitem="@layout/support_simple_spinner_dropdown_item"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/pyramid_height_label"
+            app:layout_constraintTop_toTopOf="@id/pyramid_height_label"
+            app:layout_constraintBottom_toBottomOf="@id/pyramid_height_label"
+            app:layout_constraintEnd_toStartOf="@id/start_button" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

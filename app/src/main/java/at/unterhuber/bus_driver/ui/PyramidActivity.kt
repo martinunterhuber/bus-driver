@@ -2,14 +2,15 @@ package at.unterhuber.bus_driver.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import at.unterhuber.bus_driver.adapters.PyramidAdapter
 import at.unterhuber.bus_driver.cards.Card
 import at.unterhuber.bus_driver.game.Game
-import com.example.bus_driver.R
-import com.example.bus_driver.databinding.ActivityPyramidBinding
+import at.unterhuber.bus_driver.R
+import at.unterhuber.bus_driver.databinding.ActivityPyramidBinding
 import com.google.android.flexbox.*
 import com.google.android.material.snackbar.Snackbar
 
@@ -46,6 +47,7 @@ class PyramidActivity: AppCompatActivity() {
             }
         }
         binding.showCards.setOnClickListener{ showCards() }
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
     private fun showCards() {

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.RecyclerView
-import com.example.bus_driver.R
+import at.unterhuber.bus_driver.R
 
 class PlayerAdapter(private val context: Context) : RecyclerView.Adapter<PlayerAdapter.ViewHolder>() {
     var players = ArrayList<String>(listOf(""))

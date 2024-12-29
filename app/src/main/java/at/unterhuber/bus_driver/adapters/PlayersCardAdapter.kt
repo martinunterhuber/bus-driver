@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.recyclerview.widget.RecyclerView
 import at.unterhuber.bus_driver.cards.Card
-import com.example.bus_driver.R
+import at.unterhuber.bus_driver.R
 import com.google.android.flexbox.FlexboxLayoutManager
 
 class PlayersCardAdapter(private val cards: List<ArrayList<Card>>, private val players: List<String>, private val context: Context): RecyclerView.Adapter<PlayersCardAdapter.ViewHolder>() {
